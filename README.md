@@ -3,7 +3,7 @@
 In this project you are given a web-based application that reads RSS feeds. The original developer of this application clearly saw the value in testing, they've already included [Jasmine](http://jasmine.github.io/) and even started writing their first test suite! Unfortunately, they decided to move on to start their own company and we're now left with an application with an incomplete test suite. That's where you come in.
 
 ## How to run
-You can run the test suite using the Jasmine framework by opening the index.html file in your browser after cloning [this repo](https://github.com/tostonar/frontend-nanodegree-feedreader) to your computer.
+You can run the test suite using the Jasmine framework by opening the index.html file in your browser after cloning [this repo](https://github.com/tostonar/frontend-nanodegree-feedreader) to your computer. This project has 7 specs, and when all are shown in green, that means the code is working as it should.
 
 
 ## Why this Project?
