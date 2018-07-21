@@ -112,6 +112,28 @@ $(function() {
      * by the loadFeed function that the content actually changes.
      * Remember, loadFeed() is asynchronous.
      */
+     var titleBefore, titleAfter;
+
+     beforeEach(function(done) {
+       loadFeed(1, function () {
+         titleBefore = $('.header-title').html();
+         done();
+       });
+
+       loadFeed(2, function() {
+         titleAfter = $('.header-title').html();
+         done();
+       });
+
+     });
+
+     // checking header title to make sure it changes
+     it('should change content', function(done) {
+       expect(titleBefore).not.toBe(titleAfter);
+       done();
+     });
+
+
   });
 
 
