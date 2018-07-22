@@ -111,25 +111,20 @@ $(function() {
       loadFeed(0, function() {
         contentBefore = $('.feed').html();
         done();
-        setTimeout(function() {
-          loadFeed(1, function() {
-            contentAfter = $('.feed').html();
-            done();
-          });
-        }, 1000);
-
       });
 
     });
 
     // checking content of feed container to make sure it changes
     it('should change content', function(done) {
-      expect(contentBefore).not.toBe(contentAfter);
-      done();
+      loadFeed(1);
+      setTimeout(function() {
+        contentAfter = $('.feed').html();
+        expect(contentBefore).not.toBe(contentAfter);
+        done();
+      }, 1000);
     });
 
-
   });
-
 
 }());
