@@ -88,7 +88,7 @@ $(function() {
     });
 
 
-    it('entry in feed container', function(done) {
+    it('should have an entry in feed container', function(done) {
       var container = $('.feed'),
         entries = $('article.entry');
 
