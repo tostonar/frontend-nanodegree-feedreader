@@ -92,6 +92,7 @@ $(function() {
       var container = $('.feed'),
         entries = $('article.entry');
 
+      expect(entries).toBeDefined();
       expect(entries.length).not.toBeLessThan(1);
       done();
     })
@@ -123,7 +124,7 @@ $(function() {
 
     // checking content of feed container to make sure it changes
     it('should change content', function(done) {
-      expect(contentBefore).toBe(contentAfter);
+      expect(contentBefore).not.toBe(contentAfter);
       done();
     });
 
