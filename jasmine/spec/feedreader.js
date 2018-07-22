@@ -59,7 +59,7 @@ $(function() {
      * hidden by default.
      */
     it('is hidden', function() {
-      expect(body.hasClass('menu-hidden')).toBeTruthy();
+      expect(body.hasClass('menu-hidden')).toBe(true);
     });
 
     /* A test that ensures the menu changes
@@ -70,9 +70,9 @@ $(function() {
     it('changes when clicked', function() {
       menuIcon = $('.menu-icon-link');
       menuIcon.click();
-      expect(body.hasClass('menu-hidden')).toBeFalsy();
+      expect(body.hasClass('menu-hidden')).toBe(false);
       menuIcon.click();
-      expect(body.hasClass('menu-hidden')).toBeTruthy();
+      expect(body.hasClass('menu-hidden')).toBe(true);
     });
   });
 
@@ -90,7 +90,7 @@ $(function() {
 
     it('should have an entry in feed container', function(done) {
       var container = $('.feed'),
-        entries = $('article.entry');
+        entries = $('.feed article.entry');
 
       expect(entries).toBeDefined();
       expect(entries.length).not.toBeLessThan(1);
@@ -110,19 +110,17 @@ $(function() {
     beforeEach(function(done) {
       loadFeed(0, function() {
         contentBefore = $('.feed').html();
-        done();
-      });
-
+        loadFeed(1,function() {
+          contentAfter = $('.feed').html();
+          done();
+        })
+      })
     });
 
     // checking content of feed container to make sure it changes
     it('should change content', function(done) {
-      loadFeed(1);
-      setTimeout(function() {
-        contentAfter = $('.feed').html();
-        expect(contentBefore).not.toBe(contentAfter);
-        done();
-      }, 1000);
+      expect(contentBefore).not.toBe(contentAfter);
+      done();
     });
 
   });
